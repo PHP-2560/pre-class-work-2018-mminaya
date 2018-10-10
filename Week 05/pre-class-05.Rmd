@@ -1,5 +1,5 @@
 # pre-class
-
+# Maydelis K. Minaya
 
 Make sure you commit this often with meaningful messages. 
 
@@ -96,7 +96,38 @@ bmi     Body Mass Index
 ### Question 1: Standardize Function
 
 A. Create a function called standardize.me() that takes a numeric vector as an argument, and returns the standardized version of the vector. 
+
+``` {r}
+# These functions are used to get a general idea of what the data look like
+head(wcgs) # mini-summary of data
+colnames(wcgs)
+summary(wcgs)
+
+library(dplyr)
+
+x <- wcgs # saved the entire data set into an x to make it easier to write the function
+x # printed everything correctly!
+
+standardize.me<-function(x)
+  {answer<-matrix(ncol=ncol(x),nrow=nrow(x))
+
+for (i in 1:ncol(x)){
+ answer[,i]<-(x[,i]- colMeans(x[i],na.rm=TRUE))/sd(x[,i],na.rm=TRUE)
+  }
+return(answer)
+}
+
+```
+
 B. Assign all the numeric columns of the original WCGS dataset to a new dataset called WCGS.new.
+``` {r}
+WCGS.new<-
+  wcgs%>%
+  select(age,height,weight,sbp,dbp,chol,ncigs,bmi)
+WCGS.new
+
+```
+
 C. Using a loop and your new function, standardize all the variables WCGS.new dataset.
 D. What should the mean and standard deviation of all your new standardized variables be? Test your prediction by running a loop
 
