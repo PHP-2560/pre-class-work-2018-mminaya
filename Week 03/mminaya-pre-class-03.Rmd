@@ -147,7 +147,12 @@ gapminder %>%
 
 ``` {r}
 gapminder %>%
-  group_by(continent == !Asia)
+  group_by(continent, year) %>%
+  filter (continent != "Asia") %>%
+  summarise(avg.p <- mean(pop)) %>%
+  arrange(avg.p) %>%
+  head(5)
+
 
 
 
@@ -185,6 +190,8 @@ gm1992
 gapminder %>%
    group_by(country, year) %>%
     select (country, continent, year, lifeExp, pop,gdpPercap )
+
+##
 
 ```
 
