@@ -45,6 +45,7 @@ length(continents)
 # 28 unique contries represented per continent, this is an average!
 
 ? summarize
+gapminder
 
 gapminder %>% 
   group_by(continent) %>% 
@@ -71,7 +72,6 @@ gapminder %>%
   arrange(gdpPercap) %>% 
     head(n=1) # to make a tible to show just the country with the lowest GDP
 
-
 # Albania had the lowest GDP in 1997
 
 ```
@@ -80,41 +80,63 @@ gapminder %>%
 
 ``` {r}
 
-
-gapminder %>% 
-  filter(year == 1980)
-  group_by(continent) %>%
-    summarise(n = n_distinct(lifeExp))
-    
-    
-    
-    
-
-  group_by(continent) %>% 
-  summarize(n=n_distinct(country))
+gapminder$year # to look at data for the year
+summary(gapminder$year)
+range(gapminder$year)
+subset(gapminder, year == 1982)
 
 
-
-
-
-
-
-
-
+gapminder %>%
+    filter(year == 1982 | year == 1987) %>%
+    group_by(continent) %>%
+    summarize(mean_lifeExp = mean(lifeExp))
 
 ```
 
-
-
-
-
-
-
-
-
 4. What 5 countries have the highest total GDP over all years combined?
+
+``` {r}
+
+gapminder %>%
+    mutate(gdp = gdpPercap*pop) %>% # this is to change the GDP back
+  # gdpPercap is just the GDP divided by the total pop size
+  # mutating in r is to add new variables and preserves existing
+  # transmute drops existing variables.
+    group_by(country) %>%
+    summarise(total.GDP = sum(gdp)) %>%
+    arrange(desc(total.GDP)) %>% # to arrange in descdending order
+    head(5) # to visualize the top 5 countries
+
+# 1. US
+# 2. Japan
+# 3. China
+# 4. Germany
+# 5. United Kingdom
+
+```
+
 5. What countries and years had life expectancies of _at least_ 80 years? _N.b. only output the columns of interest: country, life expectancy and year (in that order)._
+
+``` {r}
+
+gapminder %>%
+    filter(lifeExp >= 80) %>%
+  select (country, lifeExp, year)
+
+```
+
 6. What 10 countries have the strongest correlation (in either direction) between life expectancy and per capita GDP?
+
+``` {r}
+
+ gapminder %>%
+    group_by(country) %>% # group all the data by country
+    summarise(cor = cor(lifeExp, gdpPercap)) %>% # cor(x,y)
+    arrange(desc(abs(cor))) %>% # to arrnge it in descending order by correlation
+    head(10) # to see the top 10 countries
+  
+```
+
 7. Which combinations of continent (besides Asia) and year have the highest average population across all countries? _N.b. your output should include all results sorted by highest average population_. With what you already know, this one may stump you. See [this Q&A](http://stackoverflow.com/q/27207963/654296) for how to `ungroup` before `arrange`ing. This also [behaves differently in more recent versions of dplyr](https://github.com/hadley/dplyr/releases/tag/v0.5.0).
 8. Which three countries have had the most consistent population estimates (i.e. lowest standard deviation) across the years of available data? 
 9. Subset **gm** to only include observations from 1992 and store the results as **gm1992**. What kind of object is this?
