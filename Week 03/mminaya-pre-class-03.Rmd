@@ -1,3 +1,9 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
 # pre-class
 # Maydelis K. Minaya 
 # Week 03- In-Class Work 
@@ -10,7 +16,7 @@ Make sure you commit this often with meaningful messages.
 We will work with the dataset called [gapminder](https://github.com/jennybc/gapminder), this is a cleaned up version from [Gapminder Data](http://www.gapminder.org/data/). Gapminder contains a lot of great data on all of the nations of the world. We first need to install the gapminder package in R. 
 
 ``` {r}
-install.packages("gapminder")
+# install.packages("gapminder")
 
 ```
 
@@ -129,7 +135,7 @@ gapminder %>%
 
 ``` {r}
 
- gapminder %>%
+gapminder %>%
     group_by(country) %>% # group all the data by country
     summarise(cor = cor(lifeExp, gdpPercap)) %>% # cor(x,y)
     arrange(desc(abs(cor))) %>% # to arrnge it in descending order by correlation
@@ -138,6 +144,47 @@ gapminder %>%
 ```
 
 7. Which combinations of continent (besides Asia) and year have the highest average population across all countries? _N.b. your output should include all results sorted by highest average population_. With what you already know, this one may stump you. See [this Q&A](http://stackoverflow.com/q/27207963/654296) for how to `ungroup` before `arrange`ing. This also [behaves differently in more recent versions of dplyr](https://github.com/hadley/dplyr/releases/tag/v0.5.0).
+
+``` {r}
+gapminder %>%
+  group_by(continent == !Asia)
+
+
+
+```
+
+
 8. Which three countries have had the most consistent population estimates (i.e. lowest standard deviation) across the years of available data? 
+
+``` {r}
+gapminder %>%
+    group_by(country) %>% # group all the data by country
+    summarise(sd1 = sd(pop)) %>% # sd(pop)
+    arrange(sd1)%>% # to arrnge it by ascending order, which is the default in r
+    head(3) # to see the top 10 countries
+
+```
+
 9. Subset **gm** to only include observations from 1992 and store the results as **gm1992**. What kind of object is this?
+
+``` {r}
+
+gm1992 <- gapminder %>%
+  subset(year ==1992)
+
+gm1992
+
+# this object is a tible (142 x 6)
+
+```
+
+
 10. Which observations indicate that the population of a country has *decreased* from the previous year **and** the life expectancy has *increased* from the previous year? See [the vignette on window functions](https://cran.r-project.org/web/packages/dplyr/vignettes/window-functions.html).
+
+``` {r}
+gapminder %>%
+   group_by(country, year) %>%
+    select (country, continent, year, lifeExp, pop,gdpPercap )
+
+```
+
