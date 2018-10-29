@@ -30,8 +30,78 @@ head(gapminder) # look at a summary of ghe data before we start to play with it!
 Use **dplyr** functions to address the following questions:
 
 1. How many unique countries are represented per continent?
-2. Which European nation had the lowest GDP per capita in 1997? 
+``` {r}
+
+countries <- unique(gapminder$country)
+length(countries)
+
+continents <- unique(gapminder$continent)
+length(continents)
+
+(length(countries)/ length(continents))
+
+# There are a total of 142 countries represented in the data
+# 5 continents
+# 28 unique contries represented per continent, this is an average!
+
+? summarize
+
+gapminder %>% 
+  group_by(continent) %>% 
+  summarize(n=n_distinct(country))
+
+# Results
+# A tibble: 5 x 2
+  #continent     n
+ # <fct>     <int>
+# 1 Africa       52
+# 2 Americas     25
+# 3 Asia         33
+# 4 Europe       30
+# 5 Oceania       2
+
+```
+
+2. Which European nation had the lowest GDP per capita in 1997?
+
+``` {r}
+
+gapminder %>% 
+  filter(continent == "Europe" & year == 1997) %>%
+  arrange(gdpPercap) %>% 
+    head(n=1) # to make a tible to show just the country with the lowest GDP
+
+
+# Albania had the lowest GDP in 1997
+
+```
+
 3. According to the data available, what was the average life expectancy across each continent in the 1980s?
+
+``` {r}
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
 4. What 5 countries have the highest total GDP over all years combined?
 5. What countries and years had life expectancies of _at least_ 80 years? _N.b. only output the columns of interest: country, life expectancy and year (in that order)._
 6. What 10 countries have the strongest correlation (in either direction) between life expectancy and per capita GDP?
