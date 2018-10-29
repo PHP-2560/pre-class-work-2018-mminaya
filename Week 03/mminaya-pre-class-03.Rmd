@@ -81,7 +81,17 @@ gapminder %>%
 ``` {r}
 
 
+gapminder %>% 
+  filter(year == 1980)
+  group_by(continent) %>%
+    summarise(n = n_distinct(lifeExp))
+    
+    
+    
+    
 
+  group_by(continent) %>% 
+  summarize(n=n_distinct(country))
 
 
 
