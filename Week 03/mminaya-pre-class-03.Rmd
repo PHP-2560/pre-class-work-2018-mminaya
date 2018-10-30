@@ -151,9 +151,6 @@ gapminder %>%
   filter (continent != "Asia") %>%
   summarise(avg.p <- mean(pop)) %>%
   arrange(avg.p) %>%
-  head(5)
-
-
 
 
 ```
