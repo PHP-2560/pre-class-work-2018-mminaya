@@ -26,11 +26,18 @@ options(scipen = 3, digits = 3)
 
 ``` {r}
 # Set-Up Packages
-install.packages("httr")
+# install.packages("httr")
 library(httr)
+# install.packages("xml2")
+library(xml2)
+# install.packages("rvest")
+library(rvest)
 
 # Q1: 
 webpage <- GET("https://money.cnn.com/data/us_markets/")
+# or
+
+webpage2 <- "https://money.cnn.com/data/us_markets/"
 
 ```
 
@@ -50,6 +57,26 @@ status_code(webpage)
 ```
 
 3. Extract all of the sector names from the “Stock Sectors” table (bottom left of the web page.)
+
+``` {r}
+status_code(webpage)
+http_status(webpage)
+headers(webpage)
+webpage$content # raw data
+
+details <-content(webpage, "parse")
+
+test_webpage <- read_html(webpage2)
+test_webpage
+
+html_node(test_webpage, xpath="//ul")
+
+html_text(html_nodes(test_webpage, "a[href*='sectors']"))
+
+```
+
+
+
 
 
 
