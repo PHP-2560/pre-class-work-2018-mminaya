@@ -39,6 +39,7 @@ B. Now, add all the EVEN integers between 0 and 1000 (hint: use seq())
 my_addeven__loop <- 
  { for (j in 0:1000)
   print(sum(j+1))
+   
 }
 
 
@@ -49,7 +50,7 @@ C. Now, repeat A and B WITHOUT using a loop.
 
 
 ```{r}
-# A: To print the integers fromn 1;:50
+# A: To print the integers fromn 1:50
 
 
 
