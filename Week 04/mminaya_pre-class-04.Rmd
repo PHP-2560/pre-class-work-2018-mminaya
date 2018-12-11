@@ -19,6 +19,7 @@ my_integer_loop <-
 ### Question 2:
 
 A.  Using a loop, add all the integers between 0 and 1000.
+
 ``` {r}
 my_add_loop <- 
  { for (j in 0:1000)
@@ -30,7 +31,6 @@ my_add_loop <-
 
 B. Now, add all the EVEN integers between 0 and 1000 (hint: use seq())
 
-
 ``` {r}
 my_addeven_loop <- 
  { for (j in seq(from=0, to=1000, by=2))}
@@ -39,7 +39,6 @@ my_addeven_loop <-
 ```
 
 C. Now, repeat A and B WITHOUT using a loop.
-
 
 ```{r}
 # A:
@@ -76,4 +75,30 @@ The response to each question should be an integer between 1 and 5. Obviously, w
 
 A. Using a loop, create a new dataframe called survey.clean where all the invalid values (those that are not integers between 1 and 5) are set to NA.
 
+``` {r}
+
+survey.clean <- 
+
+
+
+
+
+
+```
+
+
 B. Now, again using a loop, add a new column to the dataframe called “invalid.answers” that indicates, for each participant, how many bad answers they gave.
+
+``` {r}
+
+invalid.answers <-
+
+
+
+
+```
+
+
+
+
+
