@@ -101,10 +101,26 @@ B. Now, again using a loop, add a new column to the dataframe called “invalid.
 
 ``` {r}
 
-invalid.answers <-
+invalid.answers <-survey
+  
+for(i in 2:ncol(invalid.answers)) {
+  
+ data.temp <- invalid.answers[,i]
+ 
+ data.temp[(data.temp %in% 1:5) == T] <- sum(data.temp)
+ 
+ invalid.answers[,i] <- data.temp
+ 
+}
 
+invalid.answers
 
+wrong_sum <-sum(invalid.answers[,1:5])
 
+library(dplyr)
+
+invalid.answers %>% as.data.frame() %>% mutate(
+  wrong = wrong_sum)
 
 ```
 
