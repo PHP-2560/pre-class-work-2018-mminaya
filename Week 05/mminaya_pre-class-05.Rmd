@@ -120,6 +120,14 @@ WCGS.new
 ```
 
 C. Using a loop and your new function, standardize all the variables WCGS.new dataset.
+
+``` {r}
+standardize.me(WCGS.new)
+
+# used the function by itself because did not know how to do the for loop!
+```
+
+
 D. What should the mean and standard deviation of all your new standardized variables be? Test your prediction by running a loop
 
 
