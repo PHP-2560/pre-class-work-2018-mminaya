@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 1. Read the source code for each of the following three functions, puzzle out what they do, and then brainstorm better names.
 
 ``` {r}
-
 f1 <- function(string, prefix) {
   substr(string, 1, nchar(prefix)) == prefix
 }
@@ -38,13 +37,14 @@ f3 <- function(x, y) {
 f3
 # testing out the function
 # it works!
+# always test the functions to check for errors
 
 ```
 
 2. Compare and contrast rnorm() and MASS::mvrnorm(). How could you make them more consistent?
 
 ``` {r}
-
+rnorm
 
 
 
@@ -60,16 +60,25 @@ f3
 
 
 
-
-
-
-
-
-
-
-
-
 3. Use `lapply()` and an anonymous function to find the coefficient of variation (the standard deviation divided by the mean) for all columns in the mtcars dataset. 
+
+``` {r}
+mtcars[,1]
+df <-mtcars
+df
+
+
+```
+
+
+
+
+
+
+
+
+
+
 
 4. Use vapply() to:
     a. Compute the standard deviation of every column in a numeric data frame.
