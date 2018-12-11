@@ -16,7 +16,7 @@ Using a loop, print the integers from 1 to 50.
 my_integer_loop <- 
  { for (j in 1:50)
   print(j)
-}
+ }
 
 ```
 
@@ -24,10 +24,9 @@ my_integer_loop <-
 
 A.  Using a loop, add all the integers between 0 and 1000.
 ``` {r}
-
-my_integer_loop <- 
- { for (j in 1:50)
-  print(j)
+my_add_loop <- 
+ { for (j in 0:1000)
+  print(sum(j+1))
 }
 
 ```
@@ -35,7 +34,27 @@ my_integer_loop <-
 
 B. Now, add all the EVEN integers between 0 and 1000 (hint: use seq())
 
+
+``` {r}
+my_addeven__loop <- 
+ { for (j in 0:1000)
+  print(sum(j+1))
+}
+
+
+
+```
+
 C. Now, repeat A and B WITHOUT using a loop.
+
+
+```{r}
+# A: To print the integers fromn 1;:50
+
+
+
+
+```
 
 ### Question 3:
 
