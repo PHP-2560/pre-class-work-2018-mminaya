@@ -83,11 +83,17 @@ A. Using a loop, create a new dataframe called survey.clean where all the invali
 
 survey.clean <- survey
 
-
-
-
-
-
+for(i in 2:ncol(survey.clean)) {
+  
+ data.temp <- survey.clean[,i]
+ 
+ data.temp[(data.temp %in% 1:5) == F] <- NA
+ 
+ survey.clean[,i] <- data.temp
+ 
+}
+survey.clean
+table(survey.clean)
 ```
 
 
