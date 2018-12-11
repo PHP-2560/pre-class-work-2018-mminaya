@@ -36,14 +36,10 @@ B. Now, add all the EVEN integers between 0 and 1000 (hint: use seq())
 
 
 ``` {r}
-my_addeven__loop <- 
- { for (j in 0:1000)
+my_addeven_loop <- 
+ { for (j in seq(from=0, to=1000, by=2))}
   print(sum(j+1))
-   
-}
-
-
-
+  
 ```
 
 C. Now, repeat A and B WITHOUT using a loop.
