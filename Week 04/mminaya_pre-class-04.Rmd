@@ -1,12 +1,8 @@
 # pre-class
 # Maydelis K. Minaya
-
-
+# Week 04
 
 Make sure you commit this often with meaningful messages. 
-
-
-
 
 ### Question 1:
 
@@ -46,7 +42,16 @@ C. Now, repeat A and B WITHOUT using a loop.
 
 
 ```{r}
-# A: To print the integers fromn 1:50
+# using the seq() to generate the numbers
+
+#B:
+seq.a <-seq(from=0, to=50, by=1)
+
+seq.b <- seq(from=1, to=1000)
+
+
+
+
 
 
 
