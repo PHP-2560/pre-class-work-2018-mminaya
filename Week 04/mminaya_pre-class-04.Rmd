@@ -12,9 +12,26 @@ Make sure you commit this often with meaningful messages.
 
 Using a loop, print the integers from 1 to 50. 
 
+``` {r}
+my_integer_loop <- 
+ { for (j in 1:50)
+  print(j)
+}
+
+```
+
 ### Question 2:
 
 A.  Using a loop, add all the integers between 0 and 1000.
+``` {r}
+
+my_integer_loop <- 
+ { for (j in 1:50)
+  print(j)
+}
+
+```
+
 
 B. Now, add all the EVEN integers between 0 and 1000 (hint: use seq())
 
