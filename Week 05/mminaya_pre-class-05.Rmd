@@ -166,9 +166,13 @@ A. Using a loop, calculate the mean weight of the subjects separated by the type
 
 ```
 
-
-
-
-
 B. Now do the same thing, but now don’t use a loop
+
+``` {r}
+
+x$weight
+x$typchd69
+
+
+```
 
