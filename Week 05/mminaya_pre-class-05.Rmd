@@ -122,7 +122,7 @@ WCGS.new
 C. Using a loop and your new function, standardize all the variables WCGS.new dataset.
 
 ``` {r}
-standardize.me(WCGS.new)
+standard_data <-standardize.me(WCGS.new)
 
 # used the function by itself because did not know how to do the for loop!
 ```
@@ -130,7 +130,27 @@ standardize.me(WCGS.new)
 
 D. What should the mean and standard deviation of all your new standardized variables be? Test your prediction by running a loop
 
+``` {r}
 
+# means
+
+mean(standard_data[,1])
+mean(standard_data[,2])
+mean(standard_data[,3])
+mean(standard_data[,4])
+mean(standard_data[,5])
+mean(standard_data[,6])
+mean(standard_data[,7])
+mean(standard_data[,8])
+
+# standard deviations
+
+
+
+
+
+
+```
 
 
 ### Question 2: Looping to Calculate
