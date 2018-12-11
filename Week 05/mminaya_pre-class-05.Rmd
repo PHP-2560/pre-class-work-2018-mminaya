@@ -160,5 +160,15 @@ sd(standard_data[,8])
 ### Question 2: Looping to Calculate
 
 A. Using a loop, calculate the mean weight of the subjects separated by the type of CHD they have.
+
+```{r}
+# cannot answe the question, I am not sure how to write a for loop for this :/
+
+```
+
+
+
+
+
 B. Now do the same thing, but now don’t use a loop
 
