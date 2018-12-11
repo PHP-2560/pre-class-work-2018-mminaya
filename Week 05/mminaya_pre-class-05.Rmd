@@ -144,12 +144,16 @@ mean(standard_data[,7])
 mean(standard_data[,8])
 
 # standard deviations
+sd(standard_data[,1])
+sd(standard_data[,2])
+sd(standard_data[,3])
+sd(standard_data[,4])
+sd(standard_data[,5])
+sd(standard_data[,6])
+sd(standard_data[,7])
+sd(standard_data[,8])
 
-
-
-
-
-
+# do not know how to code for loop for this questions, so did it manually, i think it comes out to be the same result, not sure.
 ```
 
 
