@@ -42,19 +42,19 @@ C. Now, repeat A and B WITHOUT using a loop.
 
 
 ```{r}
+#A:
 # using the seq() to generate the numbers
 
+seq.a <-seq(from=0, to=1000, by=1)
+sum(seq.a)
+# sum is 500500
+
 #B:
-seq.a <-seq(from=0, to=50, by=1)
+seq.b <- seq(from=0, to=1000, by=2)
+sum(seq.b)
+# sum is 250500
 
-seq.b <- seq(from=1, to=1000)
-
-
-
-
-
-
-
+# the seq function is easier for me than doing the for loop, more intuitive and easier to code 
 
 ```
 
