@@ -42,14 +42,14 @@ C. Now, repeat A and B WITHOUT using a loop.
 
 
 ```{r}
-#A:
+# A:
 # using the seq() to generate the numbers
 
 seq.a <-seq(from=0, to=1000, by=1)
 sum(seq.a)
 # sum is 500500
 
-#B:
+# B:
 seq.b <- seq(from=0, to=1000, by=2)
 sum(seq.b)
 # sum is 250500
