@@ -61,15 +61,23 @@ mvrorms()
 ```
 
 
-
-
-
 3. Use `lapply()` and an anonymous function to find the coefficient of variation (the standard deviation divided by the mean) for all columns in the mtcars dataset. 
 
 ``` {r}
-mtcars[,1]
-df <-mtcars
-df
+car_df <-mtcars
+# name the data as car_df
+car_df
+str(car_df)
+
+# to check structure
+
+anonym_function <- function (x) {
+  (sd(x)/mean(x))
+}
+
+
+lapply(car_df, anonym_function)
+# function works nicely!
 
 
 ```
