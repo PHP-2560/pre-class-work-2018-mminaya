@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 1. Read the source code for each of the following three functions, puzzle out what they do, and then brainstorm better names.
 
 ``` {r}
+
 f1 <- function(string, prefix) {
   substr(string, 1, nchar(prefix)) == prefix
 }
@@ -38,14 +39,19 @@ f3
 # testing out the function
 # it works!
 # always test the functions to check for errors
-
 ```
 
 2. Compare and contrast rnorm() and MASS::mvrnorm(). How could you make them more consistent?
 
 ``` {r}
-rnorm
 
+library(MASS)
+rnorm(mtcars) 
+mvrorms()
+
+# This is the mvrnorm function from the MASS package (Venables and Ripley, 2002), with one small modification to facilitate replication of random samples. The aim is to make sure that, after the seed is reset, the first rows of generated data are identical no matter what value is chosen for n. The one can draw 100 observations, reset the seed, and then draw 110 observations, and the first 100 will match exactly. This is done to prevent unexpected and peculiar patterns that are observed when n is altered with MASS package's mvrnorm.
+# R documentation 
+# https://www.rdocumentation.org/packages/rockchalk/versions/1.8.129/topics/mvrnorm
 
 
 
