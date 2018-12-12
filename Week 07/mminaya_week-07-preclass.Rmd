@@ -21,9 +21,6 @@ output:
 options(scipen = 3, digits = 3)
 ```
 
-
-
-
 #Project Goals:
 
 
