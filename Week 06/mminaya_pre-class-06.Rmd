@@ -53,13 +53,11 @@ mvrorms()
 # R documentation 
 # https://www.rdocumentation.org/packages/rockchalk/versions/1.8.129/topics/mvrnorm
 
+# rnorm generates multivariate normal random variates in the space X
 
+# https://www.rdocumentation.org/packages/compositions/versions/1.40-2/topics/rnorm
 
-
-
-
-
-
+# To make them more consistent, have an option that inputs cerain variables that the use can pre-define
 ```
 
 
