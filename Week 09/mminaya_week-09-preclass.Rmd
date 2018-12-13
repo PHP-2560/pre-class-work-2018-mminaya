@@ -75,25 +75,66 @@ html_text(html_nodes(test_webpage, "a[href*='sectors']"))
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
 4. Extract all of the “3 Month % Change” values from the “Stock Sectors” table.
+
+```{r}
+html_text(html_nodes(webpage, "a[href*='sectors']"))
+
+```
+
 5. Extract the table “What’s Moving” (top middle of the web page) into a data-frame.
+
+```{r}
+html_text(html_nodes(webpage, "a[href*='sectors']"))
+
+whatsmoving.table = readHTMLTable(webpage, header=T, which=1,stringsAsFactors=F)
+
+```
+
 6. Re-construct all of the links from the first column of the “What’s Moving” table.
+
+```{r}
+
+div class="wsod_fRight wsod_MarketMoversToggle">
+							<ul class="wsod_invisiTabs clearfix">
+								<li><a href="javascript:void(0);" class="active">Gainers/Losers</a></li>
+								<li class="pipe">|</li>
+								<li><a href="javascript:void(0);">Most Active</a></li>
+							</ul>
+						</div>
+```
+
 Hint: the base URL is “https://money.cnn.com”
 7. Extract the titles under the “Latest News” section (bottom middle of the web page.)
+
+```{r}
+
+<div class="HeadlineList">
+		<ul>
+				<li><a href="https://www.cnn.com/2018/12/12/business/wells-fargo-foreclosure-nightmare/index.html">'I begged them for help': Wells Fargo foreclosure nightmare</a></li>
+				<li><a href="https://www.cnn.com/2018/12/12/business/procter-and-gamble-bevel-razors-tristan-walker-walker-and-company/index.html">Procter &amp; Gamble builds a strategy to win African-American consumers</a></li>
+				<li><a href="https://www.cnn.com/2018/12/12/business/renault-carlos-ghosn/index.html">Nissan shares evidence against Carlos Ghosn with Renault</a></li>
+				<li><a href="https://www.cnn.com/2018/12/12/business/china-huawei-retaliation/index.html">How China could retaliate against US and Canadian companies over Huawei</a></li>
+				<li><a href="https://www.cnn.com/2018/12/11/business/delta-new-boarding-process/index.html">Delta changes the way fliers board planes</a></li>
+				<li><a href="https://www.cnn.com/2018/12/11/business/mondelez-snack-plan/index.html">Oreo-maker Mondelez has a plan to become the biggest name in snacks</a></li>
+				<li><a href="https://www.cnn.com/2018/12/11/business/daimler-electric-car-batteries/index.html">The maker of Mercedes cars is spending $23 billion on batteries</a></li>
+				<li><a href="https://www.cnn.com/2018/12/11/business/huawei-cfo-arrest-details/index.html">How Huawei's CFO ended up in a Canadian jail cell</a></li>
+				<li><a href="https://www.cnn.com/2018/12/11/business/barclays-app-spending-limits/index.html">Barclays app stops you spending on the wrong stuff</a></li>
+				<li><a href="https://www.cnn.com/2018/12/11/business/huawei-apple-china-tech-us/index.html">Chinese companies are threatening to punish employees caught using Apple products</a></li>
+				<li><a href="https://www.cnn.com/2018/12/11/business/carlos-ghosn-nissan-japan/index.html">Tokyo court rejects Carlos Ghosn's complaint about his month-long detention</a></li>
+				<li><a href="https://www.cnn.com/2018/12/10/business/huawei-meng-wanzhou-bail-hearing/index.html">Jailed Huawei CFO's bail decision pushed to Tuesday as tensions persist</a></li>
+		</ul>
+	</div>
+
+```
+
 8. To understand the structure of the data in a web page, it is often useful to know what the underlying attributes are of the text you see.
 Extract the attributes (and their values) of the HTML element that holds the timestamp underneath the “What’s Moving” table.
+
+```{r}
+<span stream="time_277786|68572657|1708562|168212|288727|3590459|96489227|204062|195896|234420" streamjstime="1544648544000" streamdateformat="g%3Ai%3Asa%20x">Dec 12</span>
+```
+
 9. Extract the values of the blue percentage-bars from the “Trending Tickers” table (bottom right of the web page.)
 Hint: in this case, the values are stored under the “class” attribute.
 10. Get the links of all of the “svg” images on the web page.
